@@ -1,0 +1,44 @@
+name: Update
+
+# Pulls the latest graphviz-pure release, verifies every asset's build-provenance attestation
+# (it must come from graphviz-pure/graphviz-pure's release workflow, for the release tag) and its
+# checksum, and commits the regenerated Scoop manifest. graphviz-pure/graphviz-pure holds no credential
+# for this repository: it only publishes releases.
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    name: Update the manifest from the latest verified release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # commit the regenerated Scoop manifest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: true # the commit below is pushed with this job's token
+      - name: Regenerate from the latest verified release
+        id: update
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: echo "version=$(scripts/update.sh)" >> "$GITHUB_OUTPUT"
+      - name: Commit
+        env:
+          VERSION: ${{ steps.update.outputs.version }}
+        run: |
+          git diff --quiet -- bucket/graphviz-pure.json && { echo "already at $VERSION"; exit 0; }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bucket/graphviz-pure.json
+          git commit -m "graphviz-pure $VERSION"
+          git push
