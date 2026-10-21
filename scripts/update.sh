@@ -11,7 +11,7 @@ base="https://github.com/graphviz-pure/graphviz-pure/releases/download/v$version
 cat > bucket/graphviz-pure.json <<JSON
 {
     "version": "$version",
-    "description": "Byte-exact Rust port of Graphviz 16.1.0 (not affiliated with Graphviz)",
+    "description": "Pure-Rust port of Graphviz 16.1.0, same output on every platform (not affiliated with Graphviz)",
     "homepage": "https://graphviz-pure.github.io/",
     "license": "EPL-2.0",
     "architecture": {
