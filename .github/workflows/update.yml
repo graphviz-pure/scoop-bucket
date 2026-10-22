@@ -36,9 +36,10 @@ jobs:
         env:
           VERSION: ${{ steps.update.outputs.version }}
         run: |
-          git diff --quiet -- bucket/graphviz-pure.json && { echo "already at $VERSION"; exit 0; }
+          # Stage first: a plain `git diff` ignores the untracked file of the first release.
+          git add bucket/graphviz-pure.json
+          git diff --cached --quiet -- bucket/graphviz-pure.json && { echo "already at $VERSION"; exit 0; }
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add bucket/graphviz-pure.json
           git commit -m "graphviz-pure $VERSION"
           git push
