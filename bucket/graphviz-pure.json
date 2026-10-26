@@ -1,18 +1,18 @@
 {
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "Pure-Rust port of Graphviz 16.1.0, same output on every platform (not affiliated with Graphviz)",
     "homepage": "https://graphviz-pure.github.io/",
     "license": "EPL-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/graphviz-pure/graphviz-pure/releases/download/v0.2.0/graphviz-pure-0.2.0-x86_64-pc-windows-msvc.zip",
-            "hash": "3c97b53b510fd583d5627cc2af259044437db93f792bb366d458dacbf96fd3d0",
-            "extract_dir": "graphviz-pure-0.2.0-x86_64-pc-windows-msvc"
+            "url": "https://github.com/graphviz-pure/graphviz-pure/releases/download/v0.2.1/graphviz-pure-0.2.1-x86_64-pc-windows-msvc.zip",
+            "hash": "1684b7e358e5948a054bd8586557855ad86c94119c5c31f6f7806dc371d81061",
+            "extract_dir": "graphviz-pure-0.2.1-x86_64-pc-windows-msvc"
         },
         "arm64": {
-            "url": "https://github.com/graphviz-pure/graphviz-pure/releases/download/v0.2.0/graphviz-pure-0.2.0-aarch64-pc-windows-msvc.zip",
-            "hash": "50d03984810f6a867c9f7e7d73a999208eee77ced40494736c85c603bd5f28d0",
-            "extract_dir": "graphviz-pure-0.2.0-aarch64-pc-windows-msvc"
+            "url": "https://github.com/graphviz-pure/graphviz-pure/releases/download/v0.2.1/graphviz-pure-0.2.1-aarch64-pc-windows-msvc.zip",
+            "hash": "27f5af898d39f5051687e9f23b31fee1bff2ac4b686a594dce78030c5d5f3b69",
+            "extract_dir": "graphviz-pure-0.2.1-aarch64-pc-windows-msvc"
         }
     },
     "bin": "graphviz-pure.exe"
