@@ -1,18 +1,32 @@
 {
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Pure-Rust port of Graphviz 16.1.0, same output on every platform (not affiliated with Graphviz)",
     "homepage": "https://graphviz-pure.github.io/",
     "license": "EPL-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/graphviz-pure/graphviz-pure/releases/download/v1.0.0/graphviz-pure-1.0.0-x86_64-pc-windows-msvc.zip",
-            "hash": "ca33872dedffd79a07d958b6103614c4ca71bfc7e6560b2bcb518611965742af",
-            "extract_dir": "graphviz-pure-1.0.0-x86_64-pc-windows-msvc"
+            "url": [
+                "https://github.com/graphviz-pure/graphviz-pure/releases/download/v1.1.0/graphviz-pure-1.1.0-x86_64-pc-windows-msvc.zip",
+                "https://github.com/graphviz-pure/graphviz-pure/releases/download/v1.1.0/graphviz-pure-1.1.0-x86_64-pc-windows-msvc-compat.zip"
+            ],
+            "hash": [
+                "353592492b65ed8feac9247799dd48a59f594da8329aa9230e514419c89529c0",
+                "50bdfa0539791e5780c6ea17f2d2c972f17e1e9fcb34bf4af4af51001df95c2b"
+            ],
+            "extract_dir": [
+                "graphviz-pure-1.1.0-x86_64-pc-windows-msvc",
+                "graphviz-pure-1.1.0-x86_64-pc-windows-msvc-compat"
+            ],
+            "extract_to": [
+                "v3",
+                "compat"
+            ],
+            "pre_install": "Move-Item -LiteralPath \"$dir\\v3\\graphviz-pure-launcher.exe\" -Destination \"$dir\\graphviz-pure.exe\""
         },
         "arm64": {
-            "url": "https://github.com/graphviz-pure/graphviz-pure/releases/download/v1.0.0/graphviz-pure-1.0.0-aarch64-pc-windows-msvc.zip",
-            "hash": "b173e3b296426b933e14d919d447fe6d90a172c3e7dff95107537e4148ca3f55",
-            "extract_dir": "graphviz-pure-1.0.0-aarch64-pc-windows-msvc"
+            "url": "https://github.com/graphviz-pure/graphviz-pure/releases/download/v1.1.0/graphviz-pure-1.1.0-aarch64-pc-windows-msvc.zip",
+            "hash": "482345fa91668ede1d76c4f800a7a46c6c502c7ca47ff1e5eb0d0c517f586bea",
+            "extract_dir": "graphviz-pure-1.1.0-aarch64-pc-windows-msvc"
         }
     },
     "bin": "graphviz-pure.exe"
